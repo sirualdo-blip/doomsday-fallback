@@ -1,0 +1,41 @@
+<!--
+  Emergency theme loader.
+
+  1. Paste this block at the very beginning of the forum's "HTML top" field.
+  2. Keep this code inline: hosting the detector on forumstatic.ru would defeat
+     the fallback when that domain is blocked.
+-->
+<script>
+(function () {
+    'use strict';
+
+    var FALLBACK_CSS_URL = 'https://sirualdo-blip.github.io/doomsday-fallback/fallback.css?v=1';
+    var MARKER_NAME = '--doomsday-primary-theme';
+    var MARKER_VALUE = '1';
+    var root = document.documentElement;
+
+    function primaryThemeApplied() {
+        return window.getComputedStyle(root)
+            .getPropertyValue(MARKER_NAME)
+            .trim() === MARKER_VALUE;
+    }
+
+    if (primaryThemeApplied()) return;
+
+    root.classList.add('doomsday-fallback');
+
+    if (document.getElementById('doomsday-fallback-css')) return;
+
+    var link = document.createElement('link');
+    link.id = 'doomsday-fallback-css';
+    link.rel = 'stylesheet';
+    link.href = FALLBACK_CSS_URL;
+    link.onload = function () {
+        root.classList.add('doomsday-fallback-ready');
+    };
+    link.onerror = function () {
+        root.classList.add('doomsday-fallback-failed');
+    };
+    document.head.appendChild(link);
+})();
+</script>

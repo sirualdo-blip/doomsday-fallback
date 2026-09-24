@@ -1,0 +1,629 @@
+/*
+ * The Doomsday emergency theme
+ *
+ * This deliberately small, image-free stylesheet is loaded only when the
+ * primary forumstatic.ru theme did not apply. Keep it self-contained: do not
+ * add imports, fonts, images, or other resources hosted on forumstatic.ru.
+ *
+ * Activation is scoped to html.doomsday-fallback so this file is harmless if
+ * it is ever fetched while the primary theme is available.
+ */
+
+html.doomsday-fallback {
+  --fallback-page: #252626;
+  --fallback-surface: #e3dedd;
+  --fallback-surface-alt: #d7d0ce;
+  --fallback-surface-soft: #ebe7e5;
+  --fallback-dark: #2f3030;
+  --fallback-dark-deep: #202121;
+  --fallback-text: #343232;
+  --fallback-muted: #777170;
+  --fallback-light: #eee9e7;
+  --fallback-accent: #e23859;
+  --fallback-accent-dark: #b92c49;
+  --fallback-accent-soft: #e7ad9e;
+  --fallback-border: #bdb6b4;
+  --fallback-radius: 7px;
+  --fallback-width: 1000px;
+
+  color: var(--fallback-text);
+  background: var(--fallback-page);
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+html.doomsday-fallback,
+html.doomsday-fallback body {
+  width: 100%;
+  min-width: 0;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html.doomsday-fallback body {
+  min-height: 100vh;
+  color: var(--fallback-text);
+  background:
+    radial-gradient(circle at 50% -15%, #555453 0, transparent 42rem),
+    linear-gradient(180deg, #353636 0, var(--fallback-page) 32rem);
+  font: 12px/1.5 Verdana, Arial, Helvetica, sans-serif;
+}
+
+html.doomsday-fallback *,
+html.doomsday-fallback *::before,
+html.doomsday-fallback *::after {
+  box-sizing: border-box;
+}
+
+html.doomsday-fallback img {
+  max-width: 100%;
+  height: auto;
+  border: 0;
+}
+
+html.doomsday-fallback a {
+  color: var(--fallback-accent-dark);
+  text-decoration: none;
+}
+
+html.doomsday-fallback a:hover,
+html.doomsday-fallback a:focus-visible {
+  color: var(--fallback-accent);
+  text-decoration: underline;
+}
+
+html.doomsday-fallback #pun {
+  position: relative;
+  width: min(var(--fallback-width), calc(100% - 28px));
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+html.doomsday-fallback .punbb {
+  width: 100%;
+  min-height: 100vh;
+}
+
+html.doomsday-fallback .punbb ul,
+html.doomsday-fallback .punbb ol,
+html.doomsday-fallback .punbb dl,
+html.doomsday-fallback .punbb p {
+  margin-top: 0;
+}
+
+/* Static header: interactive overlays are optional and unavailable offline. */
+html.doomsday-fallback #pun-title {
+  position: relative;
+  display: grid;
+  min-height: 176px;
+  margin: 0;
+  overflow: hidden;
+  place-items: center;
+  color: var(--fallback-light);
+  background:
+    linear-gradient(115deg, rgba(226, 56, 89, 0.82), transparent 34%),
+    repeating-linear-gradient(
+      -18deg,
+      rgba(255, 255, 255, 0.035) 0 2px,
+      transparent 2px 10px
+    ),
+    linear-gradient(135deg, #171818, #454544 56%, #222323);
+  border-bottom: 4px solid var(--fallback-accent);
+}
+
+html.doomsday-fallback #pun-title::after {
+  position: absolute;
+  right: -4rem;
+  bottom: -6rem;
+  width: 22rem;
+  height: 14rem;
+  content: "";
+  background: var(--fallback-accent-soft);
+  opacity: 0.12;
+  transform: rotate(-14deg);
+}
+
+html.doomsday-fallback #pun-title h1 {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  padding: 1.25rem;
+  color: var(--fallback-light);
+  font: 700 clamp(30px, 6vw, 64px)/1 Georgia, "Times New Roman", serif;
+  letter-spacing: -0.04em;
+  text-align: center;
+  text-shadow: 0 3px 0 rgba(0, 0, 0, 0.4);
+}
+
+html.doomsday-fallback #pun-title table,
+html.doomsday-fallback #pun-title .header-selector,
+html.doomsday-fallback #pun-title .header-overlay {
+  display: none;
+}
+
+/* Navigation and service panels. */
+html.doomsday-fallback #pun-navlinks,
+html.doomsday-fallback #pun-ulinks,
+html.doomsday-fallback #pun-status,
+html.doomsday-fallback #pun-announcement {
+  margin: 0 0 10px;
+  color: var(--fallback-light);
+  background: var(--fallback-dark);
+  border-radius: 0 0 var(--fallback-radius) var(--fallback-radius);
+}
+
+html.doomsday-fallback #pun-ulinks,
+html.doomsday-fallback #pun-status,
+html.doomsday-fallback #pun-announcement {
+  border-radius: var(--fallback-radius);
+}
+
+html.doomsday-fallback #pun-navlinks .container,
+html.doomsday-fallback #pun-ulinks .container,
+html.doomsday-fallback #pun-status .container,
+html.doomsday-fallback #pun-announcement .container {
+  padding: 9px 14px;
+  color: inherit;
+  background: transparent;
+  border-radius: inherit;
+}
+
+html.doomsday-fallback #pun-navlinks h2,
+html.doomsday-fallback #pun-ulinks h2,
+html.doomsday-fallback #pun-status h2,
+html.doomsday-fallback #pun-announcement h2,
+html.doomsday-fallback #pun-main > h1 {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+html.doomsday-fallback #pun-navlinks ul,
+html.doomsday-fallback #pun-ulinks ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+html.doomsday-fallback #pun-navlinks li,
+html.doomsday-fallback #pun-ulinks li {
+  margin: 0;
+  padding: 0;
+}
+
+html.doomsday-fallback #pun-navlinks a,
+html.doomsday-fallback #pun-ulinks a,
+html.doomsday-fallback #pun-status a {
+  color: var(--fallback-light);
+}
+
+html.doomsday-fallback #pun-announcement .html-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+html.doomsday-fallback #pun-announcement a,
+html.doomsday-fallback #pun-announcement .quick-link {
+  display: inline-flex;
+  min-height: 28px;
+  align-items: center;
+  padding: 4px 10px;
+  color: var(--fallback-light);
+  background: var(--fallback-dark-deep);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 5px;
+}
+
+html.doomsday-fallback .crumbs {
+  margin: 0 0 10px;
+  padding: 7px 12px;
+  color: var(--fallback-muted);
+  background: var(--fallback-surface-soft);
+  border-radius: var(--fallback-radius);
+}
+
+/* Shared sections and tables. */
+html.doomsday-fallback .punbb .section,
+html.doomsday-fallback .punbb .main,
+html.doomsday-fallback .punbb .category,
+html.doomsday-fallback .punbb .post,
+html.doomsday-fallback .punbb .formal,
+html.doomsday-fallback .punbb .info,
+html.doomsday-fallback .punbb .modmenu {
+  margin: 0 0 12px;
+}
+
+html.doomsday-fallback .punbb .container {
+  overflow: hidden;
+  background: var(--fallback-surface);
+  border: 0;
+  border-radius: var(--fallback-radius);
+}
+
+html.doomsday-fallback .punbb .main > h1,
+html.doomsday-fallback .punbb .main > h2,
+html.doomsday-fallback .punbb .section > h2,
+html.doomsday-fallback .punbb .category > h2,
+html.doomsday-fallback .punbb .post > h3,
+html.doomsday-fallback #pun-stats > h2 {
+  margin: 0;
+  padding: 10px 14px;
+  color: var(--fallback-light);
+  background: var(--fallback-dark);
+  border-left: 4px solid var(--fallback-accent);
+  font: 700 12px/1.3 Verdana, Arial, sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+html.doomsday-fallback .punbb table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+html.doomsday-fallback .punbb th,
+html.doomsday-fallback .punbb td {
+  padding: 10px 12px;
+  overflow-wrap: anywhere;
+  text-align: left;
+  vertical-align: middle;
+  border-right: 1px solid var(--fallback-border);
+  border-bottom: 1px solid var(--fallback-border);
+}
+
+html.doomsday-fallback .punbb th:last-child,
+html.doomsday-fallback .punbb td:last-child {
+  border-right: 0;
+}
+
+html.doomsday-fallback .punbb tbody tr:nth-child(even) td {
+  background: var(--fallback-surface-alt);
+}
+
+html.doomsday-fallback .punbb thead th {
+  color: var(--fallback-light);
+  background: #404141;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+html.doomsday-fallback .punbb .tcl {
+  width: auto;
+}
+
+html.doomsday-fallback .punbb .tc2,
+html.doomsday-fallback .punbb .tc3 {
+  width: 68px;
+  text-align: center;
+}
+
+html.doomsday-fallback .punbb .tcr {
+  width: 245px;
+}
+
+html.doomsday-fallback .punbb .tcl h3 {
+  margin: 0 0 4px;
+  font: 700 14px/1.3 Georgia, "Times New Roman", serif;
+}
+
+html.doomsday-fallback .punbb .forumdesc,
+html.doomsday-fallback .punbb .lastpost,
+html.doomsday-fallback .punbb .modlist {
+  color: var(--fallback-muted);
+  font-size: 11px;
+}
+
+/* Topic lists, pagination, and actions. */
+html.doomsday-fallback .linkst,
+html.doomsday-fallback .linksb {
+  display: flex;
+  min-height: 38px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 0 0 10px;
+  padding: 6px 10px;
+  background: var(--fallback-surface-soft);
+  border-radius: var(--fallback-radius);
+}
+
+html.doomsday-fallback .pagelink,
+html.doomsday-fallback .postlink {
+  float: none;
+  margin: 0;
+}
+
+html.doomsday-fallback .postlink a,
+html.doomsday-fallback .formsubmit input,
+html.doomsday-fallback input.button,
+html.doomsday-fallback button {
+  display: inline-flex;
+  min-height: 30px;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 12px;
+  color: var(--fallback-light);
+  background: var(--fallback-dark);
+  border: 1px solid var(--fallback-accent);
+  border-radius: 5px;
+  font: 11px/1.2 Verdana, Arial, sans-serif;
+  cursor: pointer;
+}
+
+/* Posts stay readable even when profile-card scripts are unavailable. */
+html.doomsday-fallback .punbb .post {
+  overflow: hidden;
+  background: var(--fallback-surface);
+  border-radius: var(--fallback-radius);
+}
+
+html.doomsday-fallback .punbb .post .container {
+  display: grid;
+  grid-template-columns: minmax(150px, 190px) minmax(0, 1fr);
+  border-radius: 0;
+}
+
+html.doomsday-fallback .punbb .post h3 {
+  grid-column: 1 / -1;
+}
+
+html.doomsday-fallback .punbb .post-author {
+  grid-column: 1;
+  padding: 14px;
+  color: var(--fallback-light);
+  background: #3a3b3b;
+}
+
+html.doomsday-fallback .punbb .post-author ul,
+html.doomsday-fallback .punbb .post-author p {
+  margin: 0 0 8px;
+  padding: 0;
+  list-style: none;
+}
+
+html.doomsday-fallback .punbb .post-author a {
+  color: var(--fallback-light);
+}
+
+html.doomsday-fallback .punbb .post-body {
+  grid-column: 2;
+  min-width: 0;
+  padding: 16px 18px;
+  background: var(--fallback-surface);
+}
+
+html.doomsday-fallback .punbb .post-content {
+  min-height: 80px;
+  overflow-wrap: anywhere;
+}
+
+html.doomsday-fallback .punbb .post-content::after {
+  display: block;
+  clear: both;
+  content: "";
+}
+
+html.doomsday-fallback .punbb .post-links {
+  grid-column: 2;
+  padding: 8px 14px;
+  background: var(--fallback-surface-alt);
+  border-top: 1px solid var(--fallback-border);
+}
+
+html.doomsday-fallback .punbb .post-links ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+html.doomsday-fallback .punbb .post-sig {
+  margin-top: 18px;
+  padding-top: 10px;
+  color: var(--fallback-muted);
+  border-top: 1px solid var(--fallback-border);
+}
+
+html.doomsday-fallback .punbb blockquote,
+html.doomsday-fallback .punbb .quote-box,
+html.doomsday-fallback .punbb .code-box,
+html.doomsday-fallback .punbb .spoiler-box {
+  margin: 12px 0;
+  padding: 12px 14px;
+  overflow: auto;
+  background: var(--fallback-surface-alt);
+  border-left: 4px solid var(--fallback-accent-soft);
+  border-radius: 4px;
+}
+
+html.doomsday-fallback .punbb pre,
+html.doomsday-fallback .punbb code {
+  white-space: pre-wrap;
+  font-family: Monaco, Consolas, "Courier New", monospace;
+}
+
+/* Forms and the reply editor. */
+html.doomsday-fallback .punbb fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 14px;
+  background: var(--fallback-surface);
+  border: 0;
+}
+
+html.doomsday-fallback .punbb legend {
+  padding: 5px 9px;
+  color: var(--fallback-light);
+  background: var(--fallback-dark);
+  border-radius: 4px;
+}
+
+html.doomsday-fallback .punbb label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+html.doomsday-fallback .punbb input[type="text"],
+html.doomsday-fallback .punbb input[type="password"],
+html.doomsday-fallback .punbb input[type="email"],
+html.doomsday-fallback .punbb input[type="url"],
+html.doomsday-fallback .punbb select,
+html.doomsday-fallback .punbb textarea {
+  width: 100%;
+  max-width: 100%;
+  padding: 8px 10px;
+  color: var(--fallback-text);
+  background: #fff;
+  border: 1px solid var(--fallback-border);
+  border-radius: 4px;
+  font: 12px/1.45 Verdana, Arial, sans-serif;
+}
+
+html.doomsday-fallback .punbb textarea {
+  min-height: 160px;
+  resize: vertical;
+}
+
+html.doomsday-fallback .punbb .formsubmit {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 14px 14px;
+  background: var(--fallback-surface);
+}
+
+html.doomsday-fallback .punbb .checkfield label,
+html.doomsday-fallback .punbb .radiofield label {
+  display: inline;
+  font-weight: 400;
+}
+
+/* Statistics and footer links. */
+html.doomsday-fallback #pun-stats .container {
+  padding: 12px 16px;
+}
+
+html.doomsday-fallback #pun-stats ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+html.doomsday-fallback #html-footer,
+html.doomsday-fallback .footer {
+  margin-top: 12px;
+  padding: 14px;
+  color: var(--fallback-light);
+  background: var(--fallback-dark);
+  border-radius: var(--fallback-radius) var(--fallback-radius) 0 0;
+}
+
+html.doomsday-fallback #html-footer img,
+html.doomsday-fallback .footer img {
+  max-height: 40px;
+}
+
+/* Platform helpers must not cover the readable fallback page. */
+html.doomsday-fallback .acchide {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+html.doomsday-fallback .clearer {
+  display: block;
+  clear: both;
+  height: 0;
+  overflow: hidden;
+}
+
+@media (max-width: 760px) {
+  html.doomsday-fallback body {
+    background: var(--fallback-page);
+  }
+
+  html.doomsday-fallback #pun {
+    width: 100%;
+  }
+
+  html.doomsday-fallback #pun-title {
+    min-height: 112px;
+    border-radius: 0;
+  }
+
+  html.doomsday-fallback #pun-navlinks,
+  html.doomsday-fallback #pun-ulinks,
+  html.doomsday-fallback #pun-status,
+  html.doomsday-fallback #pun-announcement,
+  html.doomsday-fallback .crumbs,
+  html.doomsday-fallback .punbb .container,
+  html.doomsday-fallback .punbb .post,
+  html.doomsday-fallback .linkst,
+  html.doomsday-fallback .linksb {
+    border-radius: 0;
+  }
+
+  html.doomsday-fallback #pun-navlinks ul,
+  html.doomsday-fallback #pun-ulinks ul {
+    gap: 5px 12px;
+  }
+
+  html.doomsday-fallback .punbb .tc2,
+  html.doomsday-fallback .punbb .tc3 {
+    display: none;
+  }
+
+  html.doomsday-fallback .punbb .tcr {
+    width: 34%;
+    font-size: 10px;
+  }
+
+  html.doomsday-fallback .punbb th,
+  html.doomsday-fallback .punbb td {
+    padding: 9px 8px;
+  }
+
+  html.doomsday-fallback .punbb .post .container {
+    display: block;
+  }
+
+  html.doomsday-fallback .punbb .post-author,
+  html.doomsday-fallback .punbb .post-body,
+  html.doomsday-fallback .punbb .post-links {
+    width: 100%;
+  }
+
+  html.doomsday-fallback .punbb .post-author {
+    padding: 10px 12px;
+  }
+
+  html.doomsday-fallback .punbb .post-author ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+  }
+
+  html.doomsday-fallback .punbb .post-body {
+    padding: 14px 12px;
+  }
+
+  html.doomsday-fallback .linkst,
+  html.doomsday-fallback .linksb {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

@@ -9,7 +9,8 @@
 
 ## Файлы
 
-- `fallback.css` — автономная тема без внешних импортов, шрифтов и картинок;
+- `fallback.css` — автономная облегчённая тема без внешних импортов и шрифтов;
+- `assets/` — замороженный набор ключевых изображений оформления;
 - `loader-snippet.html` — inline-загрузчик для поля «HTML верх»;
 - `index.html` — входная страница GitHub Pages;
 - `preview.html` — локальный и размещаемый на Pages предпросмотр резерва;
@@ -18,8 +19,8 @@
 ## Публикация через отдельный репозиторий GitHub Pages
 
 1. Использовать публичный репозиторий `sirualdo-blip/doomsday-fallback`.
-2. Скопировать в его корень `fallback.css`, `index.html`, `preview.html` и
-   `.nojekyll`.
+2. Скопировать в его корень `fallback.css`, каталог `assets`, `index.html`,
+   `preview.html` и `.nojekyll`.
 3. В настройках репозитория открыть **Settings → Pages**.
 4. В **Build and deployment** выбрать **Deploy from a branch**.
 5. Выбрать ветку `main`, каталог `/ (root)` и сохранить настройку.

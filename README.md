@@ -10,6 +10,8 @@
 ## Файлы
 
 - `fallback.css` — автономная облегчённая тема без внешних импортов и шрифтов;
+- `fallback.js` — облегчённая карточка игрока и компактный список лайков через
+  штатный API форума;
 - `assets/` — замороженный набор ключевых изображений оформления;
 - `loader-snippet.html` — inline-загрузчик для поля «HTML верх»;
 - `index.html` — входная страница GitHub Pages;
@@ -19,8 +21,8 @@
 ## Публикация через отдельный репозиторий GitHub Pages
 
 1. Использовать публичный репозиторий `sirualdo-blip/doomsday-fallback`.
-2. Скопировать в его корень `fallback.css`, каталог `assets`, `index.html`,
-   `preview.html` и `.nojekyll`.
+2. Скопировать в его корень `fallback.css`, `fallback.js`, каталог `assets`,
+   `index.html`, `preview.html` и `.nojekyll`.
 3. В настройках репозитория открыть **Settings → Pages**.
 4. В **Build and deployment** выбрать **Deploy from a branch**.
 5. Выбрать ветку `main`, каталог `/ (root)` и сохранить настройку.
@@ -33,9 +35,10 @@
 
 1. Сначала обновить основной CSS форума: в `:root` должен присутствовать
    `--doomsday-primary-theme: 1`.
-2. Проверить заданный в `loader-snippet.html` публичный адрес резервного CSS.
-3. Открыть прямой URL из переменной `FALLBACK_CSS_URL` и убедиться, что он
-   доступен.
+2. Проверить заданные в `loader-snippet.html` публичные адреса резервных CSS и
+   JS.
+3. Открыть прямые URL из переменных `FALLBACK_CSS_URL` и `FALLBACK_JS_URL` и
+   убедиться, что оба доступны.
 4. Скопировать блок из `loader-snippet.html` в самое начало поля «HTML верх» —
    до подключений скриптов с `forumstatic.ru`.
 5. Сохранить настройки и обновить страницу без кеша.
@@ -71,10 +74,12 @@ getComputedStyle(document.documentElement)
 
 ## Обновление резерва
 
-После изменения `fallback.css` увеличить параметр версии в загрузчике:
+После изменения `fallback.css` или `fallback.js` увеличить параметр версии у
+соответствующего файла в загрузчике:
 
 ```js
-var FALLBACK_CSS_URL = 'https://sirualdo-blip.github.io/doomsday-fallback/fallback.css?v=2';
+var FALLBACK_CSS_URL = 'https://sirualdo-blip.github.io/doomsday-fallback/fallback.css?v=5';
+var FALLBACK_JS_URL = 'https://sirualdo-blip.github.io/doomsday-fallback/fallback.js?v=2';
 ```
 
 Резерв не обязан повторять основной дизайн. Его задача — сохранить читаемые

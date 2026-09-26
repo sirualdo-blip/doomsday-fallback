@@ -9,7 +9,8 @@
 (function () {
     'use strict';
 
-    var FALLBACK_CSS_URL = 'https://sirualdo-blip.github.io/doomsday-fallback/fallback.css?v=3';
+    var FALLBACK_CSS_URL = 'https://sirualdo-blip.github.io/doomsday-fallback/fallback.css?v=4';
+    var FALLBACK_JS_URL = 'https://sirualdo-blip.github.io/doomsday-fallback/fallback.js?v=1';
     var MARKER_NAME = '--doomsday-primary-theme';
     var MARKER_VALUE = '1';
     var root = document.documentElement;
@@ -24,18 +25,25 @@
 
     root.classList.add('doomsday-fallback');
 
-    if (document.getElementById('doomsday-fallback-css')) return;
+    if (!document.getElementById('doomsday-fallback-css')) {
+        var link = document.createElement('link');
+        link.id = 'doomsday-fallback-css';
+        link.rel = 'stylesheet';
+        link.href = FALLBACK_CSS_URL;
+        link.onload = function () {
+            root.classList.add('doomsday-fallback-ready');
+        };
+        link.onerror = function () {
+            root.classList.add('doomsday-fallback-failed');
+        };
+        document.head.appendChild(link);
+    }
 
-    var link = document.createElement('link');
-    link.id = 'doomsday-fallback-css';
-    link.rel = 'stylesheet';
-    link.href = FALLBACK_CSS_URL;
-    link.onload = function () {
-        root.classList.add('doomsday-fallback-ready');
-    };
-    link.onerror = function () {
-        root.classList.add('doomsday-fallback-failed');
-    };
-    document.head.appendChild(link);
+    if (!document.getElementById('doomsday-fallback-js')) {
+        var script = document.createElement('script');
+        script.id = 'doomsday-fallback-js';
+        script.src = FALLBACK_JS_URL;
+        document.head.appendChild(script);
+    }
 })();
 </script>

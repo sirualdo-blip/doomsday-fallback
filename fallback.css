@@ -407,6 +407,7 @@ html.doomsday-fallback .punbb .post {
 }
 
 html.doomsday-fallback .punbb .post .container {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(150px, 190px) minmax(0, 1fr);
   border-radius: 0;
@@ -467,6 +468,310 @@ html.doomsday-fallback .punbb .post-links ul {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+/* The fallback script turns the native author fields into a compact player
+   card. Source rows are hidden only after their useful values were copied. */
+html.doomsday-fallback .doomsday-fallback-profile {
+  padding: 10px;
+  background:
+    linear-gradient(rgba(31, 32, 32, 0.86), rgba(31, 32, 32, 0.94)),
+    var(--fallback-page-image) center / cover no-repeat,
+    var(--fallback-dark-deep);
+}
+
+html.doomsday-fallback .doomsday-fallback-profile > ul {
+  overflow: hidden;
+  color: var(--fallback-text);
+  background: var(--fallback-surface-soft);
+  border-radius: var(--fallback-radius);
+  direction: ltr;
+}
+
+html.doomsday-fallback .doomsday-fallback-profile > ul > li,
+html.doomsday-fallback .doomsday-fallback-profile > ul > li > span {
+  float: none;
+  width: auto;
+  margin: 0;
+}
+
+html.doomsday-fallback .doomsday-fallback-profile .pa-author {
+  padding: 10px 8px 8px;
+  color: var(--fallback-text);
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 700;
+  text-align: center;
+}
+
+html.doomsday-fallback .doomsday-fallback-profile .pa-author a {
+  color: inherit;
+}
+
+html.doomsday-fallback .doomsday-fallback-profile .pa-title {
+  padding: 0 8px 9px;
+  color: var(--fallback-muted);
+  font-size: 9px;
+  line-height: 1.35;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+html.doomsday-fallback .doomsday-fallback-profile .pa-avatar {
+  padding: 0;
+  background: var(--fallback-dark);
+}
+
+html.doomsday-fallback .doomsday-fallback-profile .pa-avatar > div {
+  padding: 0;
+}
+
+html.doomsday-fallback .doomsday-fallback-profile .pa-avatar img {
+  display: block;
+  width: 100%;
+  max-height: 310px;
+  margin: 0 auto;
+  object-fit: cover;
+}
+
+html.doomsday-fallback .doomsday-fallback-profile .pa-fld3 {
+  padding: 10px 9px 8px;
+  color: var(--fallback-text);
+  font-size: 10px;
+  line-height: 1.35;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+html.doomsday-fallback .doomsday-fallback-profile .pa-fld3 a {
+  color: var(--fallback-accent-dark);
+}
+
+html.doomsday-fallback .doomsday-fallback-profile .pa-fld4 {
+  padding: 10px 9px;
+  color: var(--fallback-text);
+  background: var(--fallback-surface-alt);
+  border-top: 1px solid var(--fallback-border);
+  border-bottom: 1px solid var(--fallback-border);
+  font-size: 10px;
+  line-height: 1.45;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+html.doomsday-fallback .doomsday-fallback-profile .pa-fld4 a {
+  color: var(--fallback-accent-dark);
+}
+
+html.doomsday-fallback .doomsday-fallback-profile-source,
+html.doomsday-fallback .doomsday-fallback-profile :is(.flag-i, .pa-online, .pa-ip) {
+  display: none;
+}
+
+html.doomsday-fallback .doomsday-fallback-profile-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  padding: 1px;
+  background: var(--fallback-border);
+}
+
+html.doomsday-fallback .doomsday-fallback-stat {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  padding: 7px 6px;
+  color: var(--fallback-muted);
+  background: var(--fallback-surface-soft);
+}
+
+html.doomsday-fallback .doomsday-fallback-stat-label {
+  overflow: hidden;
+  font-size: 7px;
+  letter-spacing: 0.04em;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+html.doomsday-fallback .doomsday-fallback-stat-value {
+  color: var(--fallback-text);
+  font-size: 10px;
+}
+
+/* Native QuickPlus links remain functional. The local script only adds a
+   readable same-origin liker list and does not replace the voting action. */
+html.doomsday-fallback #pun-viewtopic .post-body {
+  padding-bottom: 62px;
+}
+
+html.doomsday-fallback #pun-viewtopic .post :is(.post-rating, .post-vote),
+html.doomsday-fallback #pun-viewtopic .post :is(.post-rating, .post-vote) p {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+html.doomsday-fallback #pun-viewtopic .post .post-rating {
+  position: absolute;
+  right: 17px;
+  bottom: 47px;
+  z-index: 20;
+}
+
+html.doomsday-fallback #pun-viewtopic .post .post-vote {
+  position: absolute;
+  right: 65px;
+  bottom: 51px;
+  z-index: 20;
+}
+
+html.doomsday-fallback #pun-viewtopic .post :is(.post-rating, .post-vote) p > a {
+  position: relative;
+  display: inline-flex;
+  min-width: 34px;
+  height: 34px;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 7px;
+  color: var(--fallback-light);
+  background: var(--fallback-dark);
+  border: 1px solid var(--fallback-accent);
+  border-radius: 5px;
+  font-size: 10px;
+  line-height: 1;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+html.doomsday-fallback #pun-viewtopic .post .post-rating p > a::before {
+  margin-right: 4px;
+  color: var(--fallback-accent);
+  content: "♥";
+  font-size: 13px;
+}
+
+html.doomsday-fallback #pun-viewtopic .post .post-vote p > a {
+  width: 34px;
+  min-width: 34px;
+  overflow: hidden;
+  color: transparent;
+  font-size: 0;
+}
+
+html.doomsday-fallback #pun-viewtopic .post .post-vote p > a::before {
+  color: var(--fallback-light);
+  content: "+";
+  font-size: 18px;
+  font-weight: 400;
+}
+
+html.doomsday-fallback #pun-viewtopic .post .emo-like-tooltip:not(.doomsday-fallback-like-popover) {
+  display: none;
+}
+
+html.doomsday-fallback .doomsday-fallback-like-popover {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 9px);
+  z-index: 50;
+  width: 210px;
+  padding: 10px;
+  color: var(--fallback-light);
+  background: var(--fallback-dark-deep);
+  border: 1px solid var(--fallback-accent-dark);
+  border-radius: var(--fallback-radius);
+  box-shadow: 0 7px 18px rgba(0, 0, 0, 0.28);
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.14s ease, transform 0.14s ease, visibility 0.14s ease;
+  pointer-events: none;
+}
+
+html.doomsday-fallback .doomsday-fallback-like-popover::after {
+  position: absolute;
+  right: 13px;
+  bottom: -6px;
+  width: 10px;
+  height: 10px;
+  background: var(--fallback-dark-deep);
+  border-right: 1px solid var(--fallback-accent-dark);
+  border-bottom: 1px solid var(--fallback-accent-dark);
+  content: "";
+  transform: rotate(45deg);
+}
+
+html.doomsday-fallback .doomsday-fallback-like-popover.is-open,
+html.doomsday-fallback .post-rating:hover .doomsday-fallback-like-popover,
+html.doomsday-fallback .post-rating:focus-within .doomsday-fallback-like-popover {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+html.doomsday-fallback .doomsday-fallback-like-popover > strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--fallback-light);
+  font-size: 9px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+html.doomsday-fallback .doomsday-fallback-like-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 7px;
+  max-height: 112px;
+  overflow-y: auto;
+}
+
+html.doomsday-fallback .doomsday-fallback-like-grid.is-empty {
+  display: block;
+  color: var(--fallback-border);
+  font-size: 10px;
+  text-align: center;
+}
+
+html.doomsday-fallback .doomsday-fallback-like-grid > a {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  color: var(--fallback-light);
+  text-decoration: none;
+}
+
+html.doomsday-fallback .doomsday-fallback-like-grid :is(img, .doomsday-fallback-like-avatar) {
+  display: flex;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  color: var(--fallback-light);
+  background: var(--fallback-dark);
+  font-size: 12px;
+  object-fit: cover;
+}
+
+html.doomsday-fallback .doomsday-fallback-like-grid a > span:last-child {
+  width: 100%;
+  overflow: hidden;
+  font-size: 7px;
+  line-height: 1.2;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 html.doomsday-fallback .punbb .post-sig {
@@ -685,14 +990,65 @@ html.doomsday-fallback .clearer {
     padding: 10px 12px;
   }
 
-  html.doomsday-fallback .punbb .post-author ul {
+  html.doomsday-fallback .punbb .post-author:not(.doomsday-fallback-profile) ul {
     display: flex;
     flex-wrap: wrap;
     gap: 4px 12px;
   }
 
+  html.doomsday-fallback .doomsday-fallback-profile > ul {
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 0;
+  }
+
+  html.doomsday-fallback .doomsday-fallback-profile .pa-author {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  html.doomsday-fallback .doomsday-fallback-profile .pa-title {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  html.doomsday-fallback .doomsday-fallback-profile .pa-avatar {
+    grid-column: 1;
+    grid-row: 1 / span 4;
+    align-self: stretch;
+  }
+
+  html.doomsday-fallback .doomsday-fallback-profile .pa-avatar img {
+    width: 100%;
+    height: 100%;
+    max-height: 220px;
+  }
+
+  html.doomsday-fallback .doomsday-fallback-profile .pa-fld3 {
+    grid-column: 2;
+    grid-row: 3;
+  }
+
+  html.doomsday-fallback .doomsday-fallback-profile .pa-fld4 {
+    grid-column: 2;
+    grid-row: 4;
+  }
+
+  html.doomsday-fallback .doomsday-fallback-profile-stats {
+    grid-column: 1 / -1;
+    grid-row: 5;
+  }
+
   html.doomsday-fallback .punbb .post-body {
     padding: 14px 12px;
+  }
+
+  html.doomsday-fallback #pun-viewtopic .post-body {
+    padding-bottom: 62px;
+  }
+
+  html.doomsday-fallback .doomsday-fallback-like-popover {
+    width: min(210px, calc(100vw - 32px));
   }
 
   html.doomsday-fallback .linkst,

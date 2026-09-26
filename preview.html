@@ -68,13 +68,34 @@
 
       <div class="main">
         <div class="linkst"><span class="pagelink">Страница 1</span><span class="postlink"><a href="#">Ответить</a></span></div>
-        <div class="post">
+        <div id="pun-viewtopic">
+        <div class="post" id="p4507">
           <div class="container">
-            <h3>Сообщение #1</h3>
-            <div class="post-author"><p><strong>Outside Broadcast</strong></p><ul><li>Администратор</li><li>Сообщений: 358</li></ul></div>
-            <div class="post-body"><div class="post-content"><p>Резервная тема сохраняет форум читаемым, даже если основной CDN недоступен.</p><blockquote>Цитаты и основной текст остаются различимыми.</blockquote></div></div>
+            <h3>Сообщение #51</h3>
+            <div class="post-author">
+              <ul>
+                <li class="pa-author"><span class="fld-name">Автор: </span><a href="#">Evan Rosier</a></li>
+                <li class="pa-title">hereditary cunt</li>
+                <li class="pa-avatar"><div><img src="assets/category-icon-3.png" alt="Evan Rosier"></div></li>
+                <li class="pa-posts"><span class="fld-name">Сообщений: </span>163</li>
+                <li class="pa-respect"><span class="fld-name">Репутация: </span>+387</li>
+                <li class="pa-fld1"><span class="fld-name">Контекст: </span>https://forumstatic.ru/example.png</li>
+                <li class="pa-fld2"><span class="fld-name">Метка: </span>https://forumstatic.ru/example.png</li>
+                <li class="pa-fld3"><span class="fld-name">Личное дело: </span><a href="#">Эван Розье, 26</a></li>
+                <li class="pa-fld4"><span class="fld-name">Личное звание: </span><span style="font-size: 7px">i am not a violent dog<br>i don't know <b>why i bite</b></span></li>
+                <li class="pa-fld5"><span class="fld-name">PostCount: </span>1</li>
+                <li class="pa-fld6"><span class="fld-name">TopicIds: </span>91</li>
+                <li class="pa-fld8"><span class="fld-name">Money: </span>100</li>
+              </ul>
+            </div>
+            <div class="post-body">
+              <div class="post-content"><p>Резервная тема сохраняет форум читаемым, даже если основной CDN недоступен.</p><blockquote>Цитаты и основной текст остаются различимыми.</blockquote></div>
+              <div class="post-rating"><p><a href="#">3</a></p></div>
+              <div class="post-vote"><p><a href="#">+</a></p></div>
+            </div>
             <div class="post-links"><ul><li><a href="#">Цитировать</a></li><li><a href="#">Редактировать</a></li></ul></div>
           </div>
+        </div>
         </div>
       </div>
 
@@ -84,5 +105,20 @@
       </div>
     </div>
   </div>
+  <script>
+    window.fetch = function () {
+      return Promise.resolve({
+        ok: true,
+        json: function () {
+          return Promise.resolve({ response: [{ post_id: 4507, votes: [
+            { user_id: 7, username: 'Marlene McKinnon', avatar: '', value: 1 },
+            { user_id: 28, username: 'Mary Macdonald', avatar: '', value: 1 },
+            { user_id: 4, username: 'Sirius Black', avatar: '', value: 1 }
+          ] }] });
+        }
+      });
+    };
+  </script>
+  <script src="fallback.js"></script>
 </body>
 </html>
